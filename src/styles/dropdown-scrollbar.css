@@ -1,0 +1,50 @@
+/* Estilos específicos para dropdowns com scroll invisível */
+
+/* Dropdown content com scrollbar invisível */
+[data-radix-popper-content-wrapper] {
+  /* Garantir que o dropdown não seja afetado pelo scroll da página */
+  position: fixed !important;
+}
+
+/* Scrollbar invisível para dropdowns */
+[data-radix-dropdown-menu-content] {
+  /* Scrollbar invisível no Firefox */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+[data-radix-dropdown-menu-content]::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* Scrollbar invisível para popover */
+[data-radix-popover-content] {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+[data-radix-popover-content]::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* Scrollbar invisível para tooltip */
+[data-radix-tooltip-content] {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+[data-radix-tooltip-content]::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* Garantir que o scroll da página não afete os dropdowns */
+body:has([data-radix-dropdown-menu-content][data-state="open"]) {
+  /* Não remover o scroll, mas garantir que dropdowns fiquem fixos */
+  overflow-y: auto;
+}
